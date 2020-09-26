@@ -1,0 +1,70 @@
+
+# Origin file: sampleInstanceFiles\Rules\DMERules5.QIF
+#
+# If:
+#    ((the tolerance on the characteristic satisfies (0.2 mm <= tolerance)) and
+#     (the tolerance on the characteristic satisfies (tolerance <= 0.25)) and
+#     (the minimum bounding box/length <= 1200 mm) and
+#     (the minimum bounding box/length >= 500 mm) and
+#     (the minimum bounding box/width <= 1200 mm) and
+#     (the minimum bounding box/width >= 500 mm) and
+#     (the minimum bounding box/height <= 1500 mm) and
+#     (the minimum bounding box/height >= 500 mm) and
+#     ((the feature is not internal) or
+#      ((the feature size satisfies (size >= 20 mm)) and
+#       (the feature size satisfies (size <= 50 mm)) and
+#      )
+#     )
+#    )
+#
+# Then
+#    ((a CartesianCMM may be used provided that
+#      ((the XAxisLength < 1500 mm) and
+#       (the XAxisLength > 800 mm) and
+#       (the YAxisLength < 1500 mm) and
+#       (the YAxisLength > 800 mm) and
+#       (the ZAxisLength < 2000 mm) and
+#       (the ZAxisLength > 1000 mm) and
+#       (the Resolution > 0.01 mm) and
+#       (the Resolution < 0.02 mm) and
+#       (the CMM satisfies MinAmbientTemperature >= 20 C) and
+#       (the CMM satisfies MaxAmbientTemperature <= 25 C)
+#      ) 
+#     ) and
+#     (a ToolWithDetachableSensors may be used provided that it satisfies
+#      (MinAmbientTemperature >= 20 C) and
+#      (MaxAmbientTemperature <= 25 C)
+#     ) and
+#     (a SimpleTactileProbeSensor may be used provided that it satisfies:
+#      (MinAmbientTemperature >= 20C) and
+#      (MaxAmbientTemperature <= 25C) and
+#      (ProbeLength >= 50 mm) and
+#      (ProbeLength <= 75 mm) and
+#      (TipEndDiameter <= 1 mm) and
+#      (TipEndDiameter >= 0.5 mm) and
+#     )
+#    )
+#
+dme_rule
+{
+    if characteristic_parameter(ToleranceValue) in closed_interval(0.2, 0.25)
+    	and part_parameter(PartFamily/MinimumBoundingBox/Length) in closed_interval(500, 1200)
+    	and part_parameter(PartFamily/MinimumBoundingBox/Width) in closed_interval(500, 1200)
+    	and part_parameter(PartFamily/MinimumBoundingBox/Height) in closed_interval(500, 1500)
+    	and (not feature_is_internal or (feature_size in closed_interval(20, 50)))
+    	
+    dme_class may CARTESIAN_CMM
+    	with CartesianWorkingVolume/XAxisLength in closed_interval(800, 1500)
+    	with CartesianWorkingVolume/YAxisLength in closed_interval(800, 1500)
+    	with CartesianWorkingVolume/ZAxisLength in closed_interval(1000, 2000)
+    	with CartesianResolution/CombinedCartesianResolution in closed_interval(0.01, 0.02)
+    	with EnvironmentalRange/MinAmbientTemperature in closed_interval(20, 25)
+
+    dme_class may TOOL_WITH_DETACHABLE_SENSORS
+    	with EnvironmentalRange/MinAmbientTemperature in closed_interval(20, 25)
+
+    dme_class may SIMPLE_TACTILE_PROBE_SENSOR
+    	with EnvironmentalRange/MinAmbientTemperature in closed_interval(20, 25)
+    	with Length in closed_interval(50, 75)
+    	with TipEndDiameter in closed_interval(0.5, 1)
+}
