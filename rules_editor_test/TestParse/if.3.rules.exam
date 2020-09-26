@@ -1,0 +1,2 @@
+AST:
+(dme_rules (dme_rule dme_rule { (if_statement if (boolean_expr (boolean_expr (arithmetic_expr (arithmetic_const 1)) (arithmetic_comp_literal (arithmetic_comp_literal_greater >)) (arithmetic_expr (arithmetic_const 2))) or (boolean_expr (arithmetic_expr (arithmetic_const 3)) (arithmetic_comp_literal (arithmetic_comp_literal_less <)) (arithmetic_expr (arithmetic_const 2))))) (dme_then_statement (dme_then_id dme_id (dme_applicability (dme_applicability_may may)) 15)) }) <EOF>)

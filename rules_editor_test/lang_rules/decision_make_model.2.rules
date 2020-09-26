@@ -1,0 +1,7 @@
+dme_rule
+{
+dme_make_model must not
+	manufacturer = "manufacturer"
+	model_number = "model_number"
+	serial_number = "serial_number"
+}

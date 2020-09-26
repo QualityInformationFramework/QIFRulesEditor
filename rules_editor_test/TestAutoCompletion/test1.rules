@@ -1,0 +1,10 @@
+﻿dme_rule
+{
+    if characteristic_parameter(ToleranceValue) >= 0.2
+    	and characteristic_parameter(ToleranceValue) <= 0.25
+    	and part_parameter(PartFamily/MinimumBoundingBox/Length) <= 1200
+    	and part_parameter(PartFamily/MinimumBoundingBox/Length) >= 500
+    	and part_parameter(PartFamily/MinimumBoundingBox/Width) <= 1200
+    	and part_parameter(PartFamily/MinimumBoundingBox/Width) >= 500
+    	and part_parameter(PartFamily/MinimumBoundingBox/Height) 
+    	

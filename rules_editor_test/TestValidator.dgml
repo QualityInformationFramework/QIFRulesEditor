@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph Layout="ForceDirected" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id=".rulesFile" Bounds="514.202621705915,48.2231535777539,58.71,23.2766666666667" Label=".QIF file" UseManualLocation="True" />
+    <Node Id="ASTDump" Bounds="489.285381112129,207.71269703317,112.586666666667,23.2766666666666" Label="validator messages" UseManualLocation="True" />
+    <Node Id="Re.Rules.Language" Category="Category2" Bounds="492.488529146716,122.183253577754,102.56,23.2766666666666" Label="Re.Document.Qif" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source=".rulesFile" Target="Re.Rules.Language" Bounds="543.590805431179,71.4998178609212,0.118865911477428,41.6834681928343" />
+    <Link Source="Re.Rules.Language" Target="ASTDump" Bounds="544.01484685862,145.459916127523,1.12712549178138,53.2547864395315" />
+  </Links>
+  <Categories>
+    <Category Id="Category2" Label="Category 2" Background="#FF339933" IsTag="True" />
+  </Categories>
+  <Properties>
+    <Property Id="Background" Label="Background" Description="The background color" DataType="System.Windows.Media.Brush" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsTag" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Category 3" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category3')" />
+      <Setter Property="Background" Value="#FF3EBCED" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Category 2" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category2')" />
+      <Setter Property="Background" Value="#FF339933" />
+    </Style>
+  </Styles>
+</DirectedGraph>

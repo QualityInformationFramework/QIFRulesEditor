@@ -1,0 +1,21 @@
+﻿<Application x:Class="Re.Wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Re.Wpf"
+             xmlns:converters="clr-namespace:Re.Wpf.Converters"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <BitmapImage x:Key="imageNewDocument" UriSource="Images/newDocument.png"/>
+        <BitmapImage x:Key="imageCopy" UriSource="Images/copy.png"/>
+        <BitmapImage x:Key="imageCut" UriSource="Images/cut.png"/>
+        <BitmapImage x:Key="imagePaste" UriSource="Images/paste.png"/>
+        <BitmapImage x:Key="imageSave" UriSource="Images/save.png"/>
+        <BitmapImage x:Key="imageSaveQif" UriSource="Images/saveQif.png"/>
+        <BitmapImage x:Key="imageFind" UriSource="Images/find.png"/>
+        <BitmapImage x:Key="imageOpen" UriSource="Images/Open.png"/>
+        <BitmapImage x:Key="imageSettings" UriSource="Images/settings.png"/>
+
+        <converters:BoldToWeightConverter x:Key="converterBoldToWeight"/>
+        <converters:ItalicToStyleConverter x:Key="converterItalicToStyle"/>
+    </Application.Resources>
+</Application>

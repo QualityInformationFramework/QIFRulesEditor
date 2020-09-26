@@ -1,0 +1,2 @@
+AST:
+(dme_rules (dme_rule dme_rule { (uuid_statement uuid = 00001111-2222-3333-4444-555566667777) (dme_then_statement (dme_then_id dme_id (dme_applicability (dme_applicability_may may)) 15)) }) <EOF>)

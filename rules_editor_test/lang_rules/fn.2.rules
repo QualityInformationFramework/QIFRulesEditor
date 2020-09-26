@@ -1,0 +1,11 @@
+dme_rule
+{
+if characteristic_is(ANGLE)
+	and feature_is_datum
+	and feature_is_internal
+	and feature_type_is(CYLINDER)
+	and sampling_category_is(42)
+	and shape_class_is(FREEFORM)
+
+	dme_id may 15
+}

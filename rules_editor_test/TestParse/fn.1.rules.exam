@@ -1,0 +1,3 @@
+Parser error: line 3:21 mismatched input 'foo' expecting ENUM_CHARACTERISTIC
+AST:
+(dme_rules (dme_rule dme_rule { (if_statement if (boolean_expr (boolean_fn (characteristic_is characteristic_is ( foo ))))) (dme_then_statement (dme_then_id dme_id (dme_applicability (dme_applicability_may may)) 15)) }) <EOF>)

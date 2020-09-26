@@ -1,0 +1,8 @@
+dme_rule
+{
+dme_class must not UNIVERSAL_DEVICE
+    with foo/CMM = ((1 + 2) / (2 - 45))
+    with bar <= (13 + 3)
+
+}
+

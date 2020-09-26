@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This file models the rules for recommended number of points for
+specific feature types given in Table 1 of the publication 
+"Measurement Good Practice Guide No. 41 - CMM Measurement Strategies",
+National Physical Laboratory, UK, July, 2001.
+-->
+<QIFDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://qifstandards.org/xsd/qif3" versionQIF="3.0.0" idMax="1" xsi:schemaLocation="http://qifstandards.org/xsd/qif3 ../QIFApplications/QIFDocument.xsd">
+  <QPId>effa78c0-fb28-11e3-a3ac-0800200c9a66</QPId>
+  <Rules xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <FeatureRules>
+      <IfThenElseFeatureRules n="7" />
+    </FeatureRules>
+  </Rules>
+</QIFDocument>

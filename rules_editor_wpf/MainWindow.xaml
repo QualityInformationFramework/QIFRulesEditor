@@ -1,0 +1,205 @@
+﻿<Window x:Class="Re.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalon="http://icsharpcode.net/sharpdevelop/avalonedit"
+        xmlns:local="clr-namespace:Re.Wpf"
+        xmlns:re="clr-namespace:Re;assembly=rules_editor"
+        mc:Ignorable="d"
+        Title="Rules Editor" 
+        Height="600" 
+        Width="900"
+        MinHeight="50"
+        DataContext="{Binding Document}"
+        Icon="Images/RulesEditorApp.ico"
+        >
+    <!-- Prompt: Margin order: Left,Top,Right,Bottom-->
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control"
+                    Key="Space"
+                    Command="{x:Static local:Commands.CodeCompletion}"
+                    />
+    </Window.InputBindings>
+    <Window.CommandBindings>
+        <CommandBinding 
+            Command="{x:Static local:Commands.CodeCompletion}"
+            Executed="CommandBindingCompletion_Executed"
+            />
+    </Window.CommandBindings>
+    <DockPanel>
+        <ToolBarTray DockPanel.Dock="Top" >
+            <ToolBar>
+                <Button ToolTip="Create a new Rules document" Margin="3" Padding="3" Name="buttonNew" Click="buttonNew_Click">
+                    <Image Source="{StaticResource imageNewDocument}" Height="32"/>
+                </Button>
+                <Button ToolTip="Open a Rules document" Margin="3" Padding="3" Name="buttonOpen" Click="buttonOpen_Click">
+                    <Image Source="{StaticResource imageOpen}" Height="32"/>
+                </Button>
+                <Button ToolTip="Save the opened Rules document to QIF" Margin="3" Padding="3" Name="buttonSaveQif" Click="buttonSaveQif_Click">
+                    <Image Source="{StaticResource imageSaveQif}" Height="32"/>
+                </Button>
+                <Button ToolTip="Save the opened Rules document as QIF or project file" Margin="3" Padding="3" Name="buttonSaveAs" Click="buttonSaveAs_Click">
+                    <Image Source="{StaticResource imageSave}" Height="32"/>
+                </Button>
+            </ToolBar>
+            <ToolBar>
+                <Button Margin="3" Padding="3" Name="buttonCut" Click="buttonCut_Click" ToolTip="Cut the selected text">
+                    <Image Source="{StaticResource imageCut}" Height="32"/>
+                </Button>
+                <Button Margin="3" Padding="3" Name="buttonCopy" Click="buttonCopy_Click"  ToolTip="Copy the selected text">
+                    <Image Source="{StaticResource imageCopy}" Height="32"/>
+                </Button>
+                <Button Margin="3" Padding="3" Name="buttonPaste" Click="buttonPaste_Click"  ToolTip="Paste text from clipboard">
+                    <Image Source="{StaticResource imagePaste}" Height="32"/>
+                </Button>
+                <Separator/>
+                <Button Margin="3" Padding="3" Name="buttonFind" Click="buttonFind_Click" ToolTip="Find in the document">
+                    <Image Source="{StaticResource imageFind}" Height="32"/>
+                </Button>
+                <Button Margin="3" Padding="3" Name="buttonSettings" Click="buttonSettings_Click" ToolTip="Open settings window">
+                    <Image Source="{StaticResource imageSettings}" Height="32"/>
+                    <!--Settings-->
+                </Button>
+            </ToolBar>
+            <ToolBar>
+                <Button Margin="3" Padding="3" Name="buttonCompile" Click="buttonCompile_Click">Compile</Button>
+            </ToolBar>
+        </ToolBarTray>
+        <StatusBar DockPanel.Dock="Bottom" Padding="3">
+            <StatusBarItem>
+                <TextBlock Name="textBlockMessage" />
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <TextBlock x:Name="textBlockCaret" />
+            </StatusBarItem>
+        </StatusBar>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="3" />
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <!-- Grid with editor and error list -->
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="3"/>
+                    <RowDefinition Height="90"/>
+                </Grid.RowDefinitions>
+
+                <!--FontSize="{Binding Source={x:Static local:RulesEditorApp.Settings}, Path=FontSize}"-->
+                
+                <avalon:TextEditor
+                    FontFamily="{Binding Source={x:Static local:RulesEditorApp.Settings}, Path=FontName}"
+                    FontSize="{Binding Source={x:Static local:RulesEditorApp.Settings}, Path=FontSize}"
+                    FontWeight="{Binding Source={x:Static local:RulesEditorApp.Settings}, Path=IsFontBold, Converter={StaticResource converterBoldToWeight}}"
+                    FontStyle="{Binding Source={x:Static local:RulesEditorApp.Settings}, Path=IsFontItalic, Converter={StaticResource converterItalicToStyle}}"
+                Name="textEditor"
+                Margin="0 0 0 3"
+                    ShowLineNumbers="{Binding Source={x:Static local:RulesEditorApp.Settings}, Path=ShowLineNumbers}"
+                Drop="textEditor_Drop"
+                    WordWrap="{Binding Source={x:Static local:RulesEditorApp.Settings}, Path=WordWrap}"
+                >
+                </avalon:TextEditor>
+
+                <GridSplitter Height="3" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+
+                <DataGrid 
+                Grid.Row="2" 
+                Margin="3" 
+                Name="dataGridErrors" 
+                AutoGenerateColumns="False" 
+                MouseDoubleClick="dataGridErrors_MouseDoubleClick" 
+                    ItemsSource="{Binding Path=SyntaxErrors}">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Line" Binding="{Binding Path=Line}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Position" Binding="{Binding Path=Position}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Error"  Binding="{Binding Path=Error}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <GridSplitter Grid.Column="1" Width="3" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+            <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" >
+                <StackPanel >
+
+                    <TextBlock Margin="3" Padding="3">Snippets</TextBlock>
+                    <Button Name="buttonNewRule" Click="buttonNewRule_Click" Margin="3" Padding="3">New Rule</Button>
+                    <Separator />
+
+                    <TextBlock Margin="3" Padding="3">Constants</TextBlock>
+                    <!-- TODO: do something with duplication -->
+                    <Expander Header="{Binding Path=Name}" Padding="0" Margin="0" BorderThickness="0" DataContext="{x:Static re:ConstantSets.CharacteristicTypes}" IsExpanded="True">
+                        <ListBox BorderThickness="0" Margin="19 0 0 0" ItemsSource="{Binding Path=Constants}" MouseDoubleClick="listBoxConstants_MouseDoubleClick">
+                            <ListBox.Template>
+                                <ControlTemplate TargetType="ListBox">
+                                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderBrush}">
+                                        <ItemsPresenter/>
+                                    </Border>
+                                </ControlTemplate>
+                            </ListBox.Template>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Name}" ToolTip="{Binding Path=Description}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Expander>
+
+                    <Expander Header="{Binding Path=Name}" Padding="0" Margin="0" BorderThickness="0" DataContext="{x:Static re:ConstantSets.FeatureTypes}" IsExpanded="True">
+                        <ListBox BorderThickness="0" Margin="19 0 0 0" ItemsSource="{Binding Path=Constants}" MouseDoubleClick="listBoxConstants_MouseDoubleClick">
+                            <ListBox.Template>
+                                <ControlTemplate TargetType="ListBox">
+                                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderBrush}">
+                                        <ItemsPresenter/>
+                                    </Border>
+                                </ControlTemplate>
+                            </ListBox.Template>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Name}" ToolTip="{Binding Path=Description}" />
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Expander>
+
+                    <Expander Header="{Binding Path=Name}" Padding="0" Margin="0" BorderThickness="0" DataContext="{x:Static re:ConstantSets.ShapeClasses}" IsExpanded="True">
+                        <ListBox BorderThickness="0" Margin="19 0 0 0" ItemsSource="{Binding Path=Constants}" MouseDoubleClick="listBoxConstants_MouseDoubleClick">
+                            <ListBox.Template>
+                                <ControlTemplate TargetType="ListBox">
+                                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderBrush}">
+                                        <ItemsPresenter/>
+                                    </Border>
+                                </ControlTemplate>
+                            </ListBox.Template>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Name}" ToolTip="{Binding Path=Description}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Expander>
+
+                    <Expander Header="{Binding Path=Name}" Padding="0" Margin="0" BorderThickness="0" DataContext="{x:Static re:ConstantSets.DmeClassName}" IsExpanded="True">
+                        <ListBox BorderThickness="0" Margin="19 0 0 0" ItemsSource="{Binding Path=Constants}" MouseDoubleClick="listBoxConstants_MouseDoubleClick">
+                            <ListBox.Template>
+                                <ControlTemplate TargetType="ListBox">
+                                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderBrush}">
+                                        <ItemsPresenter/>
+                                    </Border>
+                                </ControlTemplate>
+                            </ListBox.Template>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Path=Name}" ToolTip="{Binding Path=Description}"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Expander>
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </DockPanel>
+
+</Window>

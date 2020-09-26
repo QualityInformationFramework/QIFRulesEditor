@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This file contains syntactically valid rules for debugging the rules model.
+The rules themselves are not intended to be useful.
+-->
+<QIFDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://qifstandards.org/xsd/qif3" versionQIF="3.0.0" idMax="1" xsi:schemaLocation="http://qifstandards.org/xsd/qif3 ../QIFApplications/QIFDocument.xsd">
+  <QPId>b2fdf150-fb27-11e3-a3ac-0800200c9a66</QPId>
+  <Rules xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <DMESelectionRules n="0" />
+  </Rules>
+</QIFDocument>

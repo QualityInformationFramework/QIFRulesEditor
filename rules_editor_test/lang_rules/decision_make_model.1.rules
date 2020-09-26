@@ -1,0 +1,6 @@
+dme_rule
+{
+dme_make_model may
+	manufacturer = "manufacturer"
+	model_number = "model_number"
+}

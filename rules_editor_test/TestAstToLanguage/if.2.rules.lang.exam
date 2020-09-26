@@ -1,0 +1,8 @@
+dme_rule
+{
+if ((true or true) and not false)
+
+dme_id may 15
+
+}
+

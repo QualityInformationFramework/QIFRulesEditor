@@ -1,0 +1,2 @@
+AST:
+(dme_rules (dme_rule dme_rule { (dme_then_statement (dme_then_decision_class dme_class (dme_applicability (dme_applicability_may may)) CMM)) }) <EOF>)

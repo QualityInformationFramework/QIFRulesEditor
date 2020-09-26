@@ -1,0 +1,2 @@
+AST:
+(dme_rules (dme_rule dme_rule { (if_statement if (boolean_expr (token_var (token_fn token ( (xpath (xpath_component (identifier if)) / (xpath_component (identifier bbb)) / (xpath_component (identifier CIRCULARITY)) / (xpath_component (identifier true)) / (xpath_component (identifier ff)) / (xpath_component (identifier token)) / (xpath_component (identifier shape_class_is)) / (xpath_component (identifier foo))) ))) = (token_var "string\"dfdd\"dds \\sdssd"))) (dme_then_statement (dme_then_id dme_id (dme_applicability (dme_applicability_must must)) 0)) }) <EOF>)

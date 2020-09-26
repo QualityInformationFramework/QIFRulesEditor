@@ -1,0 +1,14 @@
+dme_rule
+{
+dme_class must not CALIPER
+
+}
+
+dme_rule
+{
+if (feature_type_is(CYLINDER) and not feature_is_internal and characteristic_is(DIAMETER) and (feature_parameter(Diameter) > 0.010))
+
+dme_id must 4
+
+}
+

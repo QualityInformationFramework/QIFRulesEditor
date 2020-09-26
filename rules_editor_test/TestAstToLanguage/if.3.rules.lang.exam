@@ -1,0 +1,8 @@
+dme_rule
+{
+if ((1 > 2) or (3 < 2))
+
+dme_id may 15
+
+}
+

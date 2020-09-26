@@ -1,0 +1,1 @@
+﻿dme_rule { if variable(PATH) < 1 

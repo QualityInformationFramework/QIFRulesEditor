@@ -1,0 +1,5 @@
+dme_rule
+{
+if characteristic_is(foo)
+	dme_id may 15
+}

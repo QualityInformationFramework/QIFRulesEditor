@@ -1,0 +1,60 @@
+
+# Origin file: sampleInstanceFiles\Rules\DMERules3.QIF
+#
+# If the feature is a cylinder and
+#    feature is internal (i.e., a hole) and
+#    characteristic is diameter and
+#    diameter tolerance >= 0.01 and
+#    hole diameter >= 16 and
+#    hole depth <= 25
+#
+# Then
+#    a CMM may be used
+#    a PH9 may be used
+#    a stylus with length >= 25 may be used
+#    a spherical tip with diameter <= 3 and >= 2 may be used
+#
+dme_rule
+{
+	if feature_type_is(CYLINDER)
+		and feature_is_internal
+		# and characteristic_is(DIAMETER)
+		# and characteristic_parameter(ToleranceValue) >= 0.010
+		and characteristic_parameter(ToleranceValue, DIAMETER) >= 0.010
+		and feature_parameter(Diameter) >= 16
+		and feature_parameter(Length) <= 25
+
+	dme_class may CARTESIAN_CMM
+
+	dme_make_model may manufacturer = "Renishaw" model_number = "PH9"
+
+	dme_class may SIMPLE_TACTILE_PROBE_SENSOR
+		with Length >= 25
+		with TipEndDiameter >= 2
+		with TipEndDiameter <= 3
+}
+
+# Then
+#   a measurement room may be selected if
+#   temperature range min <= 22
+#   temperature range max => 22
+#   temperature control min <= 0.5
+#   temperature control max <= 0.5
+#   relative humidity min <= 0.6
+#   relative humidity max >= 0.6
+#   relative humidity control min <= 0.03
+#   relative humidity control max <= 0.03
+# error in QIF
+#
+dme_rule
+{
+	dme_class may MEASUREMENT_ROOM
+		with TemperatureRangeMax >= 22
+		with TemperatureRangeMin <= 22
+		with TemperatureControlMax <= 0.5
+		with TemperatureControlMin <= 0.5
+		with RelativeHumidityRangeMax >= 0.6
+		with RelativeHumidityRangeMin <= 0.6
+		with RelativeHumidityControlMax <= 0.03
+		with RelativeHumidityControlMin <= 0.03
+}

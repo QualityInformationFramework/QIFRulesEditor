@@ -1,0 +1,47 @@
+dme_rule
+{
+dme_class must ALLDMES
+    with Resolution <= (characteristic_parameter(Tolerance) * 0.1)
+
+}
+
+dme_rule
+{
+if characteristic_is(THICKNESS)
+
+dme_class may CALIPER
+
+}
+
+dme_rule
+{
+if characteristic_is(THICKNESS)
+
+dme_class may MICROMETER
+
+}
+
+dme_rule
+{
+if ((feature_is_internal and (feature_size < 5.0)) and (characteristic_parameter(Tolerance) >= 0.1000))
+
+dme_class may ANALOG_MICROMETER
+
+}
+
+dme_rule
+{
+if ((feature_size >= 100.0) and (characteristic_parameter(Tolerance) <= 0.100))
+
+dme_class must not ANALOG_MICROMETER
+
+}
+
+dme_rule
+{
+if ((feature_size < 200.0) and (characteristic_parameter(Tolerance) >= 0.5))
+
+dme_class may DIAL_CALIPER
+
+}
+

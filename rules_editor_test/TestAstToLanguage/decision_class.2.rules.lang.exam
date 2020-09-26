@@ -1,0 +1,6 @@
+dme_rule
+{
+dme_class must not UNIVERSAL_DEVICE
+
+}
+

@@ -1,0 +1,15 @@
+dme_rule
+{
+if variable(FREEFORM) = 2
+	and feature_parameter(foo) < 2.4e-3
+	and feature_parameter(foo/boo, SPHERE) = 3.1
+    and characteristic_parameter(Foo/Bar) >= 0
+    and characteristic_parameter(a/b/c, CYLINDRICITY) > 1112
+	and dme_parameter(x/y, GAGE) = 2
+	and feature_length > 10.2
+	and feature_size = 12
+	and feature_area > 1200.66
+	and characteristic_tolerance <= 0.1
+
+	dme_id must not 1
+}

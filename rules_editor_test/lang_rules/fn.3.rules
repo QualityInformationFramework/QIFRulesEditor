@@ -1,0 +1,5 @@
+dme_rule
+{
+if token(if/bbb/CIRCULARITY/true/ff/token/shape_class_is/foo) = "string\"dfdd\"dds \\sdssd"
+dme_id must 0
+}

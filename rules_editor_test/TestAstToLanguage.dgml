@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph Layout="ForceDirected" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id=".XMLFile" Bounds="214.721801102779,13.6365606303668,61.4233333333335,23.2766666666667" Label=".XML file" UseManualLocation="True" />
+    <Node Id=".rulesFile" Bounds="-150.292037622649,15.037206790386,64.3966666666665,23.2766666666667" Label=".rules file" UseManualLocation="True" />
+    <Node Id=".rulesFile1" Bounds="216.890026786064,285.289257565113,64.3966666666667,23.2766666666667" Label=".rules file" UseManualLocation="True" />
+    <Node Id="ASTFile" Bounds="43.3713809376707,284.273919424024,56.9066666666668,23.2766666666666" Label="AST file" UseManualLocation="True" />
+    <Node Id="ASTFile1" Bounds="36.5553647477663,13.9367167392289,56.9066666666667,23.2766666666666" Label="AST file" UseManualLocation="True" />
+    <Node Id="Re.Rules.Ast" Category="Category2" Bounds="16.2270867789781,99.1399287610365,100.636666666667,25" Group="Collapsed" UseManualLocation="True" />
+    <Node Id="Re.Rules.Ast1" Category="Category2" Bounds="31.3069292928343,185.185827847986,80.6366666666667,23.2766666666666" Label="Re.Rules.Ast" UseManualLocation="True" />
+    <Node Id="Re.Rules.Language" Category="Category2" Bounds="-174.5738191721,99.9066653055128,112.686666666667,23.2766666666666" Label="Re.Rules.Language" UseManualLocation="True" />
+    <Node Id="Re.Rules.Language1" Category="Category2" Bounds="190.736035772356,187.090506001736,112.686666666667,23.2766666666666" Label="Re.Rules.Language" UseManualLocation="True" />
+    <Node Id="Re.Rules.Qif" Category="Category2" Bounds="196.847246439439,98.4764587086383,99.25,25.043928" Group="Collapsed" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source=".rulesFile" Target="Re.Rules.Language" Bounds="-118.197227372211,38.3138733037313,0.0847528220777747,52.5928036878212" />
+    <Link Source="Re.Rules.Ast" Target="ASTFile1" Bounds="65.3771775091319,46.2119417326847,0.945050155986863,52.9279870283518" />
+    <Link Source="Re.Rules.Ast" Target="Re.Rules.Qif" Bounds="116.863753445645,111.19263487325,70.9835541807568,0.26174786369036" />
+    <Link Source="Re.Rules.Ast1" Target="ASTFile" Bounds="71.6486913028236,208.462491048177,0.134481202812637,66.8114466077755" />
+    <Link Source="Re.Rules.Language" Target="Re.Rules.Ast" Bounds="-61.8871354166667,111.573945159955,69.1142233834199,0.0355081725657271" />
+    <Link Source="Re.Rules.Language1" Target=".rulesFile1" Bounds="247.317463814808,210.367177022298,1.34870546466479,65.9239634279382" />
+    <Link Source="Re.Rules.Language1" Target="Re.Rules.Ast1" Bounds="120.943068188678,197.359539504175,69.7929594399028,0.757654988336469" />
+    <Link Source="Re.Rules.Qif" Target=".XMLFile" Bounds="245.683617556112,45.9125660506714,0.637118412021294,52.5638926579669" />
+    <Link Source="Re.Rules.Qif" Target="Re.Rules.Language1" Bounds="246.558727639154,123.476458708638,0.377848586774576,54.6142670344007" />
+  </Links>
+  <Categories>
+    <Category Id="Category2" Label="Category 2" Background="#FF339933" IsTag="True" />
+  </Categories>
+  <Properties>
+    <Property Id="Background" Label="Background" Description="The background color" DataType="System.Windows.Media.Brush" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsTag" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Category 3" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category3')" />
+      <Setter Property="Background" Value="#FF3EBCED" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Category 2" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Category2')" />
+      <Setter Property="Background" Value="#FF339933" />
+    </Style>
+  </Styles>
+</DirectedGraph>

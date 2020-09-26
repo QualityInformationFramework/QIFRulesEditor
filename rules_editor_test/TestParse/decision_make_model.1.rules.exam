@@ -1,0 +1,2 @@
+AST:
+(dme_rules (dme_rule dme_rule { (dme_then_statement (dme_then_make_model dme_make_model (dme_applicability (dme_applicability_may may)) manufacturer = (manufacturer "manufacturer") model_number = (model_number "model_number"))) }) <EOF>)

@@ -1,0 +1,30 @@
+dme_rule
+{
+if (feature_type_is(CYLINDER) and feature_is_internal and characteristic_is(DIAMETER) and (characteristic_parameter(ToleranceValue, DIAMETER) >= 0.010) and (feature_parameter(Diameter) >= 16) and (feature_parameter(Length) <= 25))
+
+dme_class may CARTESIAN_CMM
+
+dme_make_model may
+    manufacturer = "Renishaw"
+    model_number = "PH9"
+
+dme_class may SIMPLE_TACTILE_PROBE_SENSOR
+    with Length >= 25
+    with TipEndDiameter >= 2
+    with TipEndDiameter <= 3
+
+}
+
+dme_rule
+{
+dme_class may MEASUREMENT_ROOM
+    with TemperatureRangeMax >= 22
+    with TemperatureRangeMin <= 22
+    with TemperatureControlMax <= 0.5
+    with TemperatureControlMin <= 0.5
+    with RelativeHumidityRangeMax >= 0.6
+    with RelativeHumidityRangeMin <= 0.03
+    with RelativeHumidityControlMax <= 0.03
+
+}
+

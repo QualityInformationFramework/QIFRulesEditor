@@ -1,0 +1,2 @@
+AST:
+(dme_rules (dme_rule dme_rule { (if_statement if (boolean_expr ( (boolean_expr (boolean_expr ( (boolean_expr (boolean_expr (boolean_literal true)) or (boolean_expr (boolean_literal true))) )) and (boolean_expr not (boolean_expr (boolean_literal false)))) ))) (dme_then_statement (dme_then_id dme_id (dme_applicability (dme_applicability_may may)) 15)) }) <EOF>)

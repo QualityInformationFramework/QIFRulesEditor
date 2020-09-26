@@ -1,0 +1,8 @@
+dme_rule
+{
+if (((dme_parameter(CartesianWorkingVolume/XAxisLength, UNIVERSAL_DEVICE) * dme_parameter(CartesianWorkingVolume/YAxisLength, UNIVERSAL_DEVICE)) * dme_parameter(CartesianWorkingVolume/ZAxisLength, UNIVERSAL_DEVICE)) >= (((1.5 * part_parameter(PartFamily/MinimumBoundingBox/Length)) * part_parameter(PartFamily/MinimumBoundingBox/Width)) * part_parameter(PartFamily/MinimumBoundingBox/Height)))
+
+dme_class may UNIVERSAL_DEVICE
+
+}
+

@@ -1,0 +1,30 @@
+dme_rule
+{
+if (((((((((characteristic_parameter(ToleranceValue) >= 0.2) and (characteristic_parameter(ToleranceValue) <= 0.25)) and (part_parameter(PartFamily/MinimumBoundingBox/Length) <= 1200)) and (part_parameter(PartFamily/MinimumBoundingBox/Length) >= 500)) and (part_parameter(PartFamily/MinimumBoundingBox/Width) <= 1200)) and (part_parameter(PartFamily/MinimumBoundingBox/Width) >= 500)) and (part_parameter(PartFamily/MinimumBoundingBox/Height) <= 1500)) and (part_parameter(PartFamily/MinimumBoundingBox/Height) >= 500)) and (not feature_is_internal or ((feature_size >= 20) and (feature_size <= 50))))
+
+dme_class may CARTESIAN_CMM
+    with CartesianWorkingVolume/XAxisLength >= 800
+    with CartesianWorkingVolume/XAxisLength <= 1500
+    with CartesianWorkingVolume/YAxisLength >= 800
+    with CartesianWorkingVolume/YAxisLength <= 1500
+    with CartesianWorkingVolume/ZAxisLength >= 1000
+    with CartesianWorkingVolume/ZAxisLength <= 2000
+    with CartesianResolution/CombinedCartesianResolution >= 0.01
+    with CartesianResolution/CombinedCartesianResolution <= 0.02
+    with EnvironmentalRange/MinAmbientTemperature >= 20
+    with EnvironmentalRange/MaxAmbientTemperature <= 25
+
+dme_class may TOOL_WITH_DETACHABLE_SENSORS
+    with EnvironmentalRange/MinAmbientTemperature >= 20
+    with EnvironmentalRange/MinAmbientTemperature <= 25
+
+dme_class may SIMPLE_TACTILE_PROBE_SENSOR
+    with EnvironmentalRange/MinAmbientTemperature >= 20
+    with EnvironmentalRange/MinAmbientTemperature <= 25
+    with Length >= 50
+    with Length <= 75
+    with TipEndDiameter >= 0.5
+    with TipEndDiameter <= 1
+
+}
+

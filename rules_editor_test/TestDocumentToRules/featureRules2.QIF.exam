@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This file models some of the rules given in Appendix A of the
+Lockheed Martin publication "Inspection and Acceptance Criteria For A
+Model Centric Design Environment" 100-46, Rev. 2.0 December 17, 2010.
+-->
+<QIFDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://qifstandards.org/xsd/qif3" versionQIF="3.0.0" idMax="1" xsi:schemaLocation="http://qifstandards.org/xsd/qif3 ../QIFApplications/QIFDocument.xsd">
+  <QPId>bdb13de0-fb28-11e3-a3ac-0800200c9a66</QPId>
+  <Rules xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <RulesUnits n="2">
+      <AreaUnit>
+        <SIUnitName>square meter</SIUnitName>
+        <UnitName>square inch</UnitName>
+        <UnitConversion>
+          <Factor>0.00064516</Factor>
+        </UnitConversion>
+      </AreaUnit>
+      <LinearUnit>
+        <SIUnitName>meter</SIUnitName>
+        <UnitName>inch</UnitName>
+        <UnitConversion>
+          <Factor>0.0254</Factor>
+        </UnitConversion>
+      </LinearUnit>
+    </RulesUnits>
+    <FeatureRules>
+      <MaxFeatureRules n="20">
+        <Else>
+          <ThenPoints>
+            <MinPoints>3</MinPoints>
+          </ThenPoints>
+        </Else>
+      </MaxFeatureRules>
+    </FeatureRules>
+  </Rules>
+</QIFDocument>
