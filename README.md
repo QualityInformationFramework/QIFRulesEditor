@@ -2,12 +2,14 @@
  
 The QIF Rules Editor is a C#-based application which provides the capability to create and edit metrology rules in the [ISO QIF](https://www.iso.org/standard/77461.html) format.
 
-**[The user guide for the QIF Rules Editor app can be found here.](doc/)**
-
 For more information about QIF: 
 
 * [QIF Standard Website](https://www.qifstandards.org)
 * [QIF Community homepage](https://qualityinformationframework.github.io/)
+
+## User Guide
+
+**[The user guide for the QIF Rules Editor app can be found here.](doc/)**
 
 ## What it does
 
