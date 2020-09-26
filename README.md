@@ -86,7 +86,7 @@ The QIF Rules Editor is easy to build. All the dependencies are set up as NuGet 
 
 ## Copyright
 
-Copyright 2018-2020, Capvidia and QIF Rules Editor contributors
+Copyright 2018-2020, Capvidia, Metrosage, and project contributors
 
 https://www.capvidia.com/
 
