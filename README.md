@@ -84,6 +84,16 @@ The QIF Rules Editor is easy to build. All the dependencies are set up as NuGet 
 * Operating system: Windows 7 SP1, Windows 8.1, Windows 10
 * .NET Framework 4.7.2
 
+## Copyright
+
+Copyright 2018-2020, Capvidia and QIF Rules Editor contributors
+
+https://www.capvidia.com/
+
+## License
+
+See [License](LICENSE.md)
+
 ## Other Libraries
 
 * [ANTLR](https://www.antlr.org/)
