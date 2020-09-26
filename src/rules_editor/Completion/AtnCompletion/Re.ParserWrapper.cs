@@ -1,6 +1,6 @@
 ﻿///////////////////////////////////////////////////////////////////////////////
 ///
-/// Copyright 2018-2020, Capvidia and QIF Rules Editor contributors
+/// Copyright 2018-2020, Capvidia, Metrosage, and project contributors
 /// https://www.capvidia.com/
 /// 
 /// This software is provided for free use to the QIF Community under the 
