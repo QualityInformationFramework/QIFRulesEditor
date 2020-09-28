@@ -39,11 +39,12 @@ Currently, error checking is triggered manually by clicking on the "Compile" but
 
 ## Interface Overview
 
-The UI consists of 3 main parts: 
+The UI consists of 4 main parts: 
 
 1. Toolbar
 2. Text Editor
 3. Error list window
+4. Snippets panel
 
 ![](doc/img/ui-err.png)
 
@@ -89,6 +90,10 @@ The QIF Rules Editor is easy to build. All the dependencies are set up as NuGet 
 Copyright 2018-2020, Capvidia, Metrosage, and project contributors
 
 https://www.capvidia.com/
+
+## Acknowledgements
+
+This effort was developed with assitance from cooperative agreement 70NANB18H171 between the National Institute of Standards and Technology (NIST) and Metrosage, and with assistance from Capvidia. 
 
 ## License
 
