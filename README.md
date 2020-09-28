@@ -98,4 +98,3 @@ See [License](LICENSE.md)
 
 * [ANTLR](https://www.antlr.org/)
 * [Avalon Edit](https://github.com/icsharpcode/AvalonEdit)
-* [SharpDevelop](https://github.com/icsharpcode/SharpDevelop)
