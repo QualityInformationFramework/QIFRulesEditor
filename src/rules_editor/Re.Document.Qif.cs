@@ -68,6 +68,7 @@ namespace Re.Document
 
             // create root QIDDocument
             var root = doc.m_dom.CreateElement("QIFDocument", NamespaceUri);
+            root.SetAttribute("versionQIF", "3.0.0");
             doc.m_dom.AppendChild(root);
 
             // add QPId
