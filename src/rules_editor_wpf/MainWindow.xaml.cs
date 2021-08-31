@@ -82,9 +82,13 @@ namespace Re.Wpf
         {
             foreach (var e in Document.SyntaxErrors)
             {
-                var marker = TextMarkerService.Create(textEditor.Document.GetOffset(e.Line, e.Position), 1);
-                marker.MarkerTypes = TextMarkerTypes.SquigglyUnderline;
-                marker.MarkerColor = Colors.Red;
+                var pos = textEditor.Document.GetOffset(e.Line, e.Position);
+                if (pos < Document.TextDocument.TextLength)
+                {
+                    var marker = TextMarkerService.Create(pos, 1);
+                    marker.MarkerTypes = TextMarkerTypes.SquigglyUnderline;
+                    marker.MarkerColor = Colors.Red;
+                }
             }
         }
 
